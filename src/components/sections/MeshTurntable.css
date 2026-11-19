@@ -1,0 +1,164 @@
+.mesh-turntable {
+  --mesh-accent: #f47b20;
+  --mesh-sticky-height: max(100svh, 43rem);
+  position: relative;
+  min-height: calc(var(--mesh-sticky-height) + 85svh);
+  background: #101112;
+  color: #f5f2ed;
+}
+
+.mesh-turntable__sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  min-height: var(--mesh-sticky-height);
+  align-items: center;
+  padding: 5.5rem clamp(1.25rem, 5vw, 5rem) 3rem;
+  background:
+    linear-gradient(#ffffff08 1px, transparent 1px) center / 56px 56px,
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px) center / 56px 56px,
+    radial-gradient(ellipse at 72% 40%, #323839, #111213 66%);
+}
+
+.mesh-turntable__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  width: min(100%, 80rem);
+  margin-inline: auto;
+}
+
+.mesh-turntable__eyebrow {
+  margin-bottom: 1rem;
+  color: var(--mesh-accent);
+  font: 600 0.875rem/1.3 monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.mesh-turntable h2 {
+  font-size: clamp(2.75rem, 6.4vw, 6.5rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.mesh-turntable__description {
+  max-width: 32ch;
+  margin-top: 1.4rem;
+  color: #c2c6c4;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.mesh-turntable__stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding-block: 0.4rem 1.5rem;
+}
+
+.mesh-turntable__orbit {
+  position: absolute;
+  inset: auto 2% 0.9rem;
+  height: 24%;
+  border: 1px solid #ffab644a;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #080909e0 0%, #ff8d2b14 57%, transparent 72%);
+  box-shadow: 0 0 2.5rem #f47b201a, inset 0 0 1.5rem #f47b2014;
+}
+
+.mesh-turntable__orbit::after {
+  position: absolute;
+  inset: 13% 8%;
+  border: 1px dashed #f6a36f4d;
+  border-radius: inherit;
+  content: '';
+}
+
+.mesh-turntable__product {
+  position: relative;
+  height: clamp(17rem, 57svh, 34.5rem);
+  aspect-ratio: 336 / 552;
+  filter: drop-shadow(0 1rem 1.2rem #0008);
+}
+
+.mesh-turntable__product :is(img, canvas) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mesh-turntable__controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem 1rem;
+  width: min(100%, 26rem);
+  margin: 0.65rem auto 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ffffff24;
+  border-radius: 0.85rem;
+  background: #17191bee;
+  font-size: 0.875rem;
+}
+
+.mesh-turntable__controls output {
+  color: var(--mesh-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.mesh-turntable__controls input {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 1.5rem;
+  accent-color: var(--mesh-accent);
+  cursor: ew-resize;
+}
+
+.mesh-turntable__controls input:focus-visible {
+  outline: 2px solid var(--mesh-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .mesh-turntable {
+    --mesh-sticky-height: max(100svh, 36rem);
+  }
+
+  .mesh-turntable__sticky {
+    padding-block: 5rem 2rem;
+  }
+
+  .mesh-turntable__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.15rem;
+  }
+
+  .mesh-turntable__description {
+    margin-top: 0.75rem;
+  }
+
+  .mesh-turntable__product {
+    height: clamp(12rem, 34svh, 23rem);
+  }
+}
+
+@media (max-height: 687px) and (min-width: 721px), (max-height: 575px) and (max-width: 720px) {
+  .mesh-turntable__sticky {
+    top: calc(100svh - var(--mesh-sticky-height));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-turntable {
+    min-height: 0;
+  }
+
+  .mesh-turntable__sticky {
+    position: static;
+  }
+}

@@ -11,6 +11,7 @@ import { FinalCTA } from '../components/sections/FinalCTA';
 import { Footer } from '../components/sections/Footer';
 import { Hero } from '../components/sections/Hero';
 import { Manufacturing } from '../components/sections/Manufacturing';
+import { MeshTurntable } from '../components/sections/MeshTurntable';
 import { ProductShowcase } from '../components/sections/ProductShowcase';
 import { ProductTicker } from '../components/sections/ProductTicker';
 import { Quality } from '../components/sections/Quality';
@@ -44,6 +45,7 @@ function Home() {
         <ScrollOverlap first layer={0}>
           <Hero ready={ready} />
         </ScrollOverlap>
+        <MeshTurntable />
         <ScrollOverlap layer={1}>
           <StatementMarquee />
         </ScrollOverlap>
