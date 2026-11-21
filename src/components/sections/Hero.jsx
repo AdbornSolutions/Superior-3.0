@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { heroStats, siteImages } from '../../data/site';
+import heroVideo from '../../../Home-hero.mp4';
+import { heroStats } from '../../data/site';
 import { Button } from '../ui/Button';
 const EASE = [0.22, 1, 0.36, 1];
 function Hero({ ready }) {
@@ -11,7 +12,7 @@ function Hero({ ready }) {
     offset: ['start start', 'end start'],
   });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
   const show = ready;
   const line = (i) => ({
@@ -25,18 +26,21 @@ function Hero({ ready }) {
       id="top"
       className="relative flex min-h-[100svh] w-full flex-col justify-end overflow-hidden bg-ink pt-32 sm:min-h-[620px] lg:h-screen lg:pt-0"
     >
-      {/* Background photograph, revealed through a vertical mask */}
       <motion.div
         className="absolute inset-0"
+        aria-hidden="true"
         initial={reduce ? { opacity: 0 } : { clipPath: 'inset(0% 0% 100% 0%)' }}
         animate={show ? (reduce ? { opacity: 1 } : { clipPath: 'inset(0% 0% 0% 0%)' }) : void 0}
         transition={{ duration: 1.1, ease: EASE }}
       >
-        <motion.img
-          src={siteImages.hero}
-          alt="Close-up of galvanized welded wire mesh panels on the factory floor"
+        <motion.video
+          src={heroVideo}
+          autoPlay={!reduce}
+          loop
+          muted
+          playsInline
           className="h-[112%] w-full object-cover"
-          style={reduce ? void 0 : { scale, y: imageY }}
+          style={reduce ? void 0 : { scale, y: videoY }}
         />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink via-ink/60 to-transparent" />

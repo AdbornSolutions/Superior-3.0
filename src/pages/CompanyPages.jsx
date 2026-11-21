@@ -267,7 +267,7 @@ const ADDITIONAL_PRODUCT_DETAILS = {
   'knotted-fence': {
     formats: ['High-tensile galvanized wire', 'Graduated aperture mesh', 'Flexible knot joints'],
     specs: [],
-    uses: [
+     uses: [
       'Livestock containment',
       'Wild-animal and crop protection',
       'Highway boundaries',
