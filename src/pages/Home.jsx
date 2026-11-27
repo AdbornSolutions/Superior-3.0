@@ -12,6 +12,7 @@ import { Footer } from '../components/sections/Footer';
 import { Hero } from '../components/sections/Hero';
 import { Manufacturing } from '../components/sections/Manufacturing';
 import { MeshTurntable } from '../components/sections/MeshTurntable';
+import { ProductTurntables } from '../components/sections/ProductTurntables';
 import { ProductShowcase } from '../components/sections/ProductShowcase';
 import { ProductTicker } from '../components/sections/ProductTicker';
 import { Quality } from '../components/sections/Quality';
@@ -46,6 +47,7 @@ function Home() {
           <Hero ready={ready} />
         </ScrollOverlap>
         <MeshTurntable />
+        <ProductTurntables />
         <ScrollOverlap layer={1}>
           <StatementMarquee />
         </ScrollOverlap>

@@ -162,3 +162,48 @@
     position: static;
   }
 }
+
+.product-turntables {
+  --mesh-accent: #f47b20;
+  padding: clamp(1rem, 4vw, 4rem);
+  background: #101112;
+  color: #f5f2ed;
+}
+
+.product-turntables__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.35rem, 2vw, 2rem);
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+.product-turntables__viewer {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  row-gap: 0;
+}
+
+.product-turntables__viewer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.product-turntables__name {
+  text-align: center;
+  font-size: clamp(0.75rem, 2vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (max-width: 540px) {
+  .product-turntables__viewer .mesh-turntable__controls {
+    gap: 0.25rem;
+    padding: 0.45rem;
+    font-size: 0.65rem;
+  }
+}
